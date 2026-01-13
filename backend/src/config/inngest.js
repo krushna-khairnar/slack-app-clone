@@ -3,7 +3,10 @@ import { User } from "../models/user.model.js";
 import { connectDB } from "./db.js";
 
 //Create a client to send and receive events
-export const inngest = new Inngest({ name: "slack-clone" });
+// Create Inngest client
+export const inngest = new Inngest({
+  id:"slack-clone",
+});
 
 const syncUser = inngest.createFunction(
     {id:"sync-user"},
