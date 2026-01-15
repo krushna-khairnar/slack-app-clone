@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import { useStreamChat } from "../hooks/useStreamChat";
 import PageLoader from "../components/PageLoader";
+import { PlusIcon, HashIcon, UsersIcon } from "lucide-react";
 
 import {
   Chat,
