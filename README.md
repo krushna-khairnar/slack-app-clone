@@ -82,8 +82,7 @@ Built using **React (Vite)**, **Node.js (Express)**, **Stream Chat**, **Clerk Au
 
 ## ⚙️ Environment Variables
 
-### Backend (`backend/.env`)
-```env
+# Backend (`backend/.env`)
 CLERK_SECRET_KEY=your_clerk_secret_key
 STREAM_API_KEY=your_stream_api_key
 STREAM_API_SECRET=your_stream_api_secret
