@@ -27,7 +27,6 @@ export const useStreamChat = () => {
   });
 
   // init stream chat client
-  // init stream chat client
   useEffect(() => {
     if (!tokenData?.token || !user?.id || !STREAM_API_KEY) return;
 
@@ -36,15 +35,18 @@ export const useStreamChat = () => {
 
     const connect = async () => {
       try {
-        await client.connectUser(
-          {
-            id: user.id,
-            name:
-              user.fullName ?? user.username ?? user.primaryEmailAddress?.emailAddress ?? user.id,
-            image: user.imageUrl ?? undefined,
-          },
-          tokenData.token
-        );
+        // Check if user is already connected to avoid duplicate connections
+        if (!client.userID) {
+          await client.connectUser(
+            {
+              id: user.id,
+              name:
+                user.fullName ?? user.username ?? user.primaryEmailAddress?.emailAddress ?? user.id,
+              image: user.imageUrl ?? undefined,
+            },
+            tokenData.token
+          );
+        }
         if (!cancelled) {
           setChatClient(client);
         }
@@ -63,10 +65,10 @@ export const useStreamChat = () => {
 
     connect();
 
-    // cleanup
+    // cleanup - don't disconnect on unmount to prevent reconnection issues
+    // the client will be reused when the component remounts
     return () => {
       cancelled = true;
-      client.disconnectUser();
     };
   }, [tokenData?.token, user?.id]);
 
