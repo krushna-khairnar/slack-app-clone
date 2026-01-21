@@ -20,7 +20,6 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-app.options("*", cors());
 
 // Clerk middleware AFTER CORS
 app.use(clerkMiddleware());
