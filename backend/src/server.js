@@ -20,7 +20,7 @@ const allowedOrigins = [
     ENV.CLIENT_URL
 ].filter(Boolean); // Remove undefined values
 
-app.use(cors({
+const corsOptions = {
     origin: function (origin, callback) {
         // Allow requests with no origin (like mobile apps or curl requests)
         if (!origin) return callback(null, true);
@@ -34,10 +34,12 @@ app.use(cors({
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
-}));
+};
+
+app.use(cors(corsOptions));
 
 // Handle preflight requests explicitly
-app.options('*', cors());
+app.options('*', cors(corsOptions));
 app.use(clerkMiddleware()); 
 
 app.get("/debug-sentry", (req, res) => {
