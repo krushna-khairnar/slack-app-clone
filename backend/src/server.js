@@ -16,6 +16,7 @@ app.use(express.json());
 const allowedOrigins = [
     'http://localhost:5173',
     'https://slack-clone-frontend-beta.vercel.app',
+    'https://slack-clone-frontend-qsqlaqzwl.vercel.app',
     ENV.CLIENT_URL
 ].filter(Boolean); // Remove undefined values
 
@@ -30,8 +31,13 @@ app.use(cors({
             callback(new Error('Not allowed by CORS'));
         }
     },
-    credentials: true
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+// Handle preflight requests explicitly
+app.options('*', cors());
 app.use(clerkMiddleware()); 
 
 app.get("/debug-sentry", (req, res) => {
