@@ -83,26 +83,22 @@ Built using **React (Vite)**, **Node.js (Express)**, **Stream Chat**, **Clerk Au
 ## 📸 Screenshots
 
 ### 🏠 Home / Channel List
-<!-- Add screenshot here -->
-<!-- ![Home Page](assets/screenshots/home.png) -->
+![Home Page](assets/screenshots/home.png)
 
 ---
 
 ### 💬 Channel Chat View
-<!-- Add screenshot here -->
-<!-- ![Channel Chat](assets/screenshots/channel-chat.png) -->
+![Channel Chat](assets/screenshots/channel-chat.png)
 
 ---
 
 ### 👥 Direct Messages
-<!-- Add screenshot here -->
-<!-- ![Direct Messages](assets/screenshots/direct-messages.png) -->
+![Direct Messages](assets/screenshots/direct-messages.png)
 
 ---
 
-### 🎥 Video Call Interface
-<!-- Add screenshot here -->
-<!-- ![Video Call](assets/screenshots/video-call.png) -->
+### 💬 Channel Chat
+![Channel Chat](assets/screenshots/channel-chat.png)
 
 ---
 
